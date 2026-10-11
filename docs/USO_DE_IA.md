@@ -28,10 +28,13 @@ virtual para leer el mandato, la rúbrica y el capítulo LAB07.
 
 ## Qué verifiqué
 
-- **El bloqueo es real y está documentado**: el error exacto es
+- **El bloqueo fue real pero transitorio.** El error exacto fue
   `ImportError: DLL load failed while importing _pywrap_tfe: An Application Control policy has
   blocked this file`. Se decidió no desactivar Smart App Control porque Windows no permite volver a
-  activarlo sin reinstalar el sistema.
+  activarlo sin reinstalar el sistema. **Al terminar el ejercicio comprobé que TensorFlow volvía a
+  importar y a entrenar**: esa protección bloquea un archivo desconocido mientras su servicio de
+  reputación lo evalúa, y después lo permite. Por eso ejecuté también el script original del
+  proyecto base y comparé ambos marcos.
 - **Todas las cifras provienen de ejecutar `scripts/train_torch.py`** en este equipo. No hay ningún
   número escrito a mano en el informe.
 - **Las huellas SHA-256** de los cuatro archivos originales de Fashion-MNIST las calcula el propio
@@ -43,6 +46,9 @@ virtual para leer el mandato, la rúbrica y el capítulo LAB07.
 - El primer intento usó TensorFlow, como el proyecto base. Falló por la política de seguridad, y en
   lugar de forzarla se cambió de biblioteca conservando partición, semilla, tamaño de lote, épocas y
   parada temprana, para que la comparación siguiera siendo válida.
+- **Corrección posterior:** al volver a probar, TensorFlow ya funcionaba. En lugar de dejar escrito
+  que estaba bloqueado, se ejecutó el script original y se informan los dos resultados. El texto se
+  corrigió para decir que el bloqueo fue temporal, no permanente.
 - Las pruebas no podían importar desde `scripts/` porque `pyproject.toml` solo pone `src` en la
   ruta. Se añadió un `tests/conftest.py` en lugar de modificar la configuración del proyecto base.
 - La CNN del proyecto base quedó por debajo de la línea base densa. No se ocultó ni se reemplazó:

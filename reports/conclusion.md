@@ -29,6 +29,12 @@ calzado y los bolsos rondan el 2 o 3 % de error. Tiene sentido: a 28×28 píxele
 grises, lo que distingue una camisa de una camiseta son los botones o el cuello, detalles que a esa
 resolución casi desaparecen. No es un problema del modelo, es un límite de los datos.
 
+El hallazgo se sostiene en los dos marcos. El entrenamiento se hizo en PyTorch porque Windows
+bloqueó temporalmente las bibliotecas de TensorFlow, pero después volvieron a funcionar y ejecuté
+también el script original del proyecto base: la línea base densa dio 0.860 y la CNN con promedio
+global 0.776, frente a 0.855 y 0.765 en PyTorch. Que dos bibliotecas distintas den lo mismo indica
+que el problema está en la arquitectura y no en la implementación.
+
 Dos limitaciones que conviene declarar. La primera: Fashion-MNIST son imágenes centradas, del mismo
 tamaño y sin fondo, así que nada de esto anticipa el rendimiento con fotografías reales. La segunda:
 el entrenamiento se detuvo a las seis épocas y la variante aún mejoraba, de modo que 0.901 es un

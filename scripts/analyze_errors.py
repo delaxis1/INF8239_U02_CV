@@ -20,7 +20,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 import numpy as np  # noqa: E402
 import torch  # noqa: E402
-from sklearn.metrics import classification_report  # noqa: E402
+from sklearn.metrics import ConfusionMatrixDisplay, classification_report  # noqa: E402
 
 from scripts.train_torch import (CLASES, REPORTS, build_cnn_flat, build_cnn_gap,  # noqa: E402
                                  build_dense, cargar)
@@ -66,6 +66,12 @@ def main() -> None:
     for f in filas:
         print(f"{f['clase']:<{ancho}}  {f['casos']:>5}  {f['errores']:>7}  "
               f"{f['tasa_error']:.3f}   {f['se_confunde_con']}")
+
+    ConfusionMatrixDisplay.from_predictions(y_real, predicciones, display_labels=CLASES,
+                                            cmap="Blues", xticks_rotation=45, colorbar=False)
+    plt.tight_layout()
+    plt.savefig(REPORTS / "confusion_cnn.png", dpi=160, bbox_inches="tight")
+    plt.close()
 
     fallos = np.where(predicciones != y_real)[0][:16]
     figura, ejes = plt.subplots(4, 4, figsize=(7.5, 8))
