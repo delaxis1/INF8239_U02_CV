@@ -1,0 +1,11 @@
+clase,casos,errores,tasa_error,se_confunde_con
+Camisa,1000,270,0.27,Camiseta
+Camiseta,1000,211,0.211,Camisa
+Abrigo,1000,160,0.16,Camisa
+Pulóver,1000,136,0.136,Abrigo
+Vestido,1000,72,0.072,Camisa
+Zapatilla,1000,45,0.045,Botín
+Botín,1000,34,0.034,Zapatilla
+Bolso,1000,27,0.027,Camisa
+Pantalón,1000,21,0.021,Vestido
+Sandalia,1000,17,0.017,Zapatilla
