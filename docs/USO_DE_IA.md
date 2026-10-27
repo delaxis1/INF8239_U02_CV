@@ -10,12 +10,14 @@ verificadas y las correcciones realizadas.
 **Claude Opus 5 (Anthropic)**, a través de Claude Code, con acceso al proyecto local y al aula
 virtual para leer el mandato, la rúbrica y el capítulo LAB07.
 
-## Prompts relevantes
+## Instrucciones relevantes
 
-| Prompt | Para qué se usó |
+Las instrucciones se recogen **resumidas en su contenido, no transcritas literalmente**.
+
+| Instrucción dada al asistente | Qué determinó |
 |---|---|
-| "vamos con el ejercicio 04" | Leer el mandato, la rúbrica y el plazo; instalar el proyecto base de visión |
-| "¿por qué está bloqueado?" | Diagnosticar el bloqueo de TensorFlow por Smart App Control y evaluar alternativas |
+| Inicio del Ejercicio 04 | Leer el mandato, la rúbrica y el plazo; instalar el proyecto base de visión |
+| Solicitud de diagnóstico del bloqueo encontrado al importar TensorFlow | Identificar Smart App Control como causa y evaluar alternativas sin desactivar la protección |
 
 ## Qué hizo el asistente
 
